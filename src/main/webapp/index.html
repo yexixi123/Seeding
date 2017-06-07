@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS, iOS Theme -->
+    <link rel="stylesheet" href="node_modules/framework7/dist/css/framework7.ios.min.css">
+    <!-- Path to Framework7 color related styles, iOS Theme -->
+    <link rel="stylesheet" href="node_modules/framework7/dist/css/framework7.ios.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Views -->
+    <div class="views tabs toolbar-through">
+        <!-- 登陆 -->
+        <!-- Should be a direct child of BODY -->
+        <!-- 想给谁添加登陆页显示 加这个类open-login-screen  -->
+        <div class="login-screen modal-in">
+            <!-- modal-in -->
+            <!-- Default view-page layout -->
+            <div class="view-login">
+                <div class="page">
+                    <!-- page-content has additional login-screen content -->
+                    <div class="page-content login-screen-content loginBg">
+                        <!-- 关闭按钮 -->
+                        <!--    <a href="#" class="close-login-screen icon-only close">
+                            <i class="icon login-icon-close"></i>
+                        </a> -->
+                        <!-- Login form -->
+                        <form class="matTop">
+                            <div class="list-block " style="color: #fff">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">用户名</div>
+                                            <div class="item-input">
+                                                <input type="text" style="color: #fff" name="username" placeholder="输入你的用户名啦！">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">密码</div>
+                                            <div class="item-input">
+                                                <input type="password" style="color: #fff" name="password" placeholder="快点告诉我密码！！">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="btn_lonig"><a href="#" class="button my_login">登陆</a></p>
+                            <p class="btn_lonig"><a href="#" class="button my_reg open-popup" data-popup=".popup-reg">注册</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Your main view, should have "view-main" class -->
+        <!-- 主页 -->
+        <div id="view-1" class="view view-main tab active">
+            <!-- Top Navbar-->
+            <div class="navbar" style="background-color: #dffdd2">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center sliding">主页</div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-popup" data-popup=".popup-add">
+                            <i class="icon icon-plus color-green">+</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!--  添加按钮 -->
+                    <!-- Floating Action Button -->
+                    <!--   <a href="#" class="floating-button color-pink">
+                        <i class="icon icon-plus"></i>
+                    </a> -->
+                    <!-- Scrollable page content -->
+                    <div class="page-content" style="background-color: #fff">
+                        <!-- 选项卡 -->
+                        <p class="buttons-row options" style="margin: 0">
+                            <a href="#" class="button weedAll selection">全部</a>
+                            <a href="#" class="button weedDone">已拔草</a>
+                            <a href="#" class="button willWeed">未拔草</a>
+                        </p>
+                        <!-- 列表 -->
+                        <div class="list-block virtual-list" style="margin: 0">
+                            <!-- keep it empty -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 好友页面 -->
+        <div id="view-2" class="view tab">
+            <!--Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">草族</div>
+                </div>
+            </div>
+            <!-- pages -->
+            <div class="pages navbar-through toolbar-through">
+                <div class="page" data-page="friends">
+                    <!-- page-content -->
+                    <div class="page-content contacts-content">
+                        <div class="list-block contacts-block">
+                            <div class="list-group">
+                                <ul>
+                                    <li class="list-group-title">A</li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Aaron </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Abbie</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Adam</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Adele</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Agatha</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Agnes</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Albert</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Alexander</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group">
+                                <ul>
+                                    <li class="list-group-title">B</li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Bailey</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Barclay</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Bartolo</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Bellamy</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Belle</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Benjamin</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group">
+                                <ul>
+                                    <li class="list-group-title">C</li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Caiden</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Calvin</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Candy</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Carl</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Cherilyn</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Chester</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Chloe</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-group">
+                                <ul>
+                                    <li class="list-group-title">V</li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Vladimir</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 分享页面 -->
+        <div id="view-3" class="view tab">
+            <!--Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">长草圈</div>
+                </div>
+            </div>
+            <!-- pages -->
+            <div class="pages navbar-through toolbar-through">
+                <div class="page" data-page="share">
+                    <!-- page-content -->
+                    <div class="page-content">
+                        <p>这是社区</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 个人信息 -->
+        <div id="view-4" class="view tab">
+            <!--Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">好友</div>
+                </div>
+            </div>
+            <!-- pages -->
+            <div class="pages navbar-through toolbar-through">
+                <div class="page" data-page="mine">
+                    <!-- page-content -->
+                    <div class="page-content">
+                        <p>这是个人信息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar tabbar tabbar-labels" style="background-color: #dffdd2">
+            <div class="toolbar-inner">
+                <a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">清单</span></a>
+                <a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">草族</span></a>
+                <a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">长草圈</span></a>
+                <a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">个人</span></a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 添加list弹出框界面 -->
+    <!-- Popup to add new task           -->
+    <div class="popup popup-add">
+        <div class="view view-popup navbar-fixed">
+            <div class="navbar newNavbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">种草啦</div>
+                    <div class="right"><a href="#" class="link close-popup">完成</a></div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="page">
+                    <div class="page-content newPage">
+                        <textarea class="resizable newList" style="resize:none" placeholder="写点东西吧"></textarea>
+                        <div class="content-block"><a href="#" class="button add-task">Add Task</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   <script id="todo-item-template" type="text/template">
+      <ul>{{#each this}}
+        <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
+          <div class="swipeout-content">
+            <label class="label-checkbox item-content"><input type="checkbox" {{checked}}>
+              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+              <div class="item-inner">
+                <div class="item-title">{{title}}</div>
+              </div>
+            </label>
+          </div>
+          <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
+        </li>{{/each}}
+      </ul>
+    </script> -->
+    <!-- 注册 -->
+    <div class="popup popup-reg">
+        <div class="view view-popup">
+            <div class="navbar regNavbar">
+                <div class="navbar-inner">
+                    <div class="left"><a href="#" class="link icon-only close-popup"><i class="icon icon-back color-white"></i></a></div>
+                    <div class="center sliding" style="color: #fff">注册</div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="page">
+                    <div class="page-content regPage">
+                        <form class="regTop" id="my-reg" action="http://192.168.2.154:8080/user/addUser" method="POST" class="ajax-submit">
+                            <div class="list-block">
+                                <ul class="regUl">
+                                    <li class="item-content">
+                                        <div class="item-inner pub">
+                                            <div class="item-title label">用户名</div>
+                                            <div class="item-input">
+                                                <input type="text" name="username">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner pub">
+                                            <div class="item-title label">验证码</div>
+                                            <div class="item-input">
+                                                <input type="text" name="code">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner pub">
+                                            <div class="item-title label">密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner pub">
+                                            <div class="item-title label">确认密码</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                        <div class="button form-to-json">注册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="node_modules/framework7/dist/js/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

@@ -14,7 +14,8 @@
     <context:component-scan base-package="com.sending">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <mvc:annotation-driven/>
+    <!-- 开启注解-->
+    <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
 
     <!-- 定义跳转的文件的前后缀，视图模式配置-->
@@ -23,6 +24,42 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--<ref bean="jsonHttpMessageConverter" />-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <description>controller方法适配器</description>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="supportedMediaTypes" value="application/json;charset=UTF-8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- API 接口跨域配置 -->
+    <!--<mvc:cors>-->
+        <!--<mvc:mapping path="/api/**"-->
+                     <!--allowed-origins="http://d.demo.com:8080"-->
+                     <!--allowed-methods="POST, GET, OPTIONS, DELETE, PUT"-->
+                     <!--allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"-->
+                     <!--allow-credentials="true" />-->
+    <!--</mvc:cors>-->
 
     <!--swagger-ui mvc config-->
     <mvc:resources mapping="/swagger/**" location="/WEB-INF/swagger-ui/"/>
