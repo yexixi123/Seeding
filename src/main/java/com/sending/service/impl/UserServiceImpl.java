@@ -25,12 +25,21 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
-    public User queryUserByusername(String username, String password) {
+    public User queryUserByusername(String username) {
         return null;
     }
 
+
     public boolean addUser(User user) {
-        return false;
+        if(user==null){
+            return false;
+        }
+        User user1 = userDao.selectUserByUsename(user.getUsername());
+        if(user1!=null){
+            return false;
+        }
+        userDao.insertUser(user);
+        return true;
     }
 
     public boolean loginByUsername(String username, String password) {

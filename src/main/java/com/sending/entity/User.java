@@ -13,6 +13,17 @@ public class User {
     @ApiModelProperty(value="密码" ,required=true)
     private String password;//密码
 
+    @ApiModelProperty(value="验证码" ,required=true)
+    private String code;//密码
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getPassword() {
         return password;
     }

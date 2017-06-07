@@ -21,10 +21,9 @@ public interface UserService {
      * 查询用户
      *
      * @param username
-     * @param password
      * @return
      */
-    public User queryUserByusername(String username, String password);
+    public User queryUserByusername(String username);
 
 
     /**
