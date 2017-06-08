@@ -11,34 +11,11 @@ var mainView = myApp.addView('.view-main', {
     precompileTemplates: true
 });
 // 注册表单提交
-// $$('.form-to-json').on('click', function(){
-//   var formData = myApp.formToJSON('#my-reg');
-//   console.log(JSON.stringify(formData))
-//   $$.ajax({
-//     url:'http://192.168.2.154:8080/user/addUser',
-//     method:'POST',
-//     // contentType:'application/json',
-//     data:JSON.stringify(formData),
-//     dataType:'json',
-//     success:function (data) {
-//         console.log(data)
-//         console.log('成功')
-//     },
-//     error:function (data) {
-//         console.log(data)
-//         console.log('失败')
-//     }
 
-//   })
-// });
 $$('.form-to-json').on('click', function () {
      var formData = myApp.formToJSON('#my-reg');
-    // console.log(JSON.stringify(formData))
-    //var data = {
-    //    "code": "123",
-    //    "password": "123456",
-    //    "username": "aaaaaa"
-    //}
+    console.log(JSON.stringify(formData))
+
     $$.ajaxSetup({
         contentType: 'application/json'
     });
@@ -60,18 +37,7 @@ $$('.form-to-json').on('click', function () {
         }
 
     })
-    //  $$.post('/user/addUser', {code: '123',
-    //      password: '123456',
-    //      username: 'aaaaaa'}, function (data) {
-    //      //$$('.login').html(data);
-    //      console.log('Load was performed');
-    //  });
-});
-
-// $$('.my_loginup').on('click', function() {
-//     console.log('跳转到注册页面')
-//     mainView.router.load('loginup.html')
-// })
+ 
 $$('.my_login').on('click', function () {
     myApp.closeModal('.login-screen')
 });
