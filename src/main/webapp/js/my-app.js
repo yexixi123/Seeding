@@ -125,7 +125,7 @@ $$('.append-item').on('click', function () {
 $$('.popup-add').on('open', function () {
   $$('.newList').val('')
 });  
-var item_content,item_title,item_time;
+var item_content,item_title,item_time,oldval;
 //点击编辑
 $$('.home-list').on('click','.list-item', function () {
     var setText=$$(this).children().children().eq(2).text()
@@ -134,11 +134,12 @@ $$('.home-list').on('click','.list-item', function () {
   item_content=$$(this).children().children().eq(2)
   item_title=$$(this).children().children().eq(0)
   item_time=$$(this).children().children().eq(1)
+  oldval=$$('.editList').val()
 });
 //编辑完成后 list内容更改
 $$('.save-item').on('click', function () {
-    var panduan=$$('.editList').html()
-    if(!$$('.editList').val()==panduan){
+    var newval=$$('.editList').val()
+    if(newval!=oldval){
     var edit_title=$$('.editList').val().substring(0, 10)
     var edit_text=$$('.editList').val()
     var edit_time=new Date().Format("yyyy-MM-dd-m-s")
@@ -147,4 +148,5 @@ $$('.save-item').on('click', function () {
     item_title.text(edit_title)
     item_time.text(edit_time)
     }
+    
 }); 
