@@ -23,8 +23,6 @@ $$('.form-to-json').on('click', function () {
         url: 'http://192.168.2.154:8080/user/addUser',
         method: 'POST',
         crossDomain: true,//这个一定要设置成true，默认是false，true是跨域请求。
-        // contentType:'application/json',
-        //contentType: "application/json",
         data: JSON.stringify(formData),
         //dataType:'json',
         success: function (data) {
@@ -37,6 +35,7 @@ $$('.form-to-json').on('click', function () {
         }
 
     })
+})
  
 $$('.my_login').on('click', function () {
     myApp.closeModal('.login-screen')
@@ -66,33 +65,33 @@ var date = new Date().Format("yyyy-MM-dd")
 // 主页列表初始化
 var myList = myApp.virtualList('.list-block.virtual-list', {
     // Array with items data
-
+cache:true,
     items: [{
         title: 'Item 1',
         text: 'aaa',
         date: date
     }, {
         title: 'Item 2',
-        text: 'aaa',
+        text: 'bbb',
         date: date
     },
 
         {
             title: 'Item 3',
-            text: 'aaa',
+            text: 'ccc',
             date: date
         },
         {
             title: 'Item 4',
-            text: 'aaa',
+            text: 'ddd',
             date: date
         }, {
             title: 'Item 5',
-            text: 'aaa',
+            text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
             date: ''
         }, {
             title: 'Item 6',
-            text: 'aaa',
+            text: '水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水',
             date: date
         }, {
             title: 'Item 7',
@@ -144,7 +143,7 @@ var myList = myApp.virtualList('.list-block.virtual-list', {
         }
     ],
     // Template 7 template to render each item
-    template: '<li class="item-content">' +
+    template: '<li class="item-content list-item ">' +
     '<div class="item-inner row">' +
     '<div class="item-title col-70">{{title}}</div>' +
     '<div class="item-date col-30">{{date}}</div>' +
@@ -155,13 +154,6 @@ var myList = myApp.virtualList('.list-block.virtual-list', {
 });
 
 
-// 增加list
-$$('.button.append-items').on('click', function () {
-    // Append Item
-    myList.appendItem({
-        title: 'Item 1001'
-    });
-});
 
 
 // 根据索引显示  
@@ -186,3 +178,43 @@ $$('.button.weedAll').on('click', function () {
     $$('.weedAll').addClass('selection').siblings().removeClass('selection');
     $$('.list-block ul').css("height", "100%")
 });
+
+// 增加list
+$$('.append-item').on('click', function () {
+    var new_title=$$('.newList').val().substring(0, 10)
+    var new_text=$$('.newList').val()
+    console.log(new_title)
+    console.log(new_text)
+    // Append Item
+    if(!$$('.newList').val()==''){
+
+    myList.appendItem({
+        title: new_title,
+        text:new_text,
+        date:date
+    });
+    }
+});
+//每次点击添加按钮清空里面的内容
+$$('.popup-add').on('open', function () {
+  $$('.newList').val('')
+});  
+var item_content,item_title;
+//点击编辑
+$$('.home-list').on('click','.list-item', function () {
+    var setText=$$(this).children().children().eq(2).text()
+  myApp.popup('.popup-edit')
+  $$('.editList').val(setText)
+  item_content=$$(this).children().children().eq(2)
+  item_title=$$(this).children().children().eq(0)
+});
+//编辑完成后 list内容更改
+$$('.save-item').on('click', function () {
+    var edit_title=$$('.editList').val().substring(0, 10)
+    var edit_text=$$('.editList').val()
+    console.log(edit_text)
+    console.log(item_content)
+    console.log(item_title)
+    item_content.text(edit_text)
+    item_title.text(edit_title)
+}); 

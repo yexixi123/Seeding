@@ -98,7 +98,7 @@
                             <a href="#" class="button willWeed">未拔草</a>
                         </p>
                         <!-- 列表 -->
-                        <div class="list-block virtual-list" style="margin: 0">
+                        <div class="list-block virtual-list home-list" style="margin: 0">
                             <!-- keep it empty -->
                         </div>
                     </div>
@@ -348,39 +348,41 @@
     <!-- 添加list弹出框界面 -->
     <!-- Popup to add new task           -->
     <div class="popup popup-add">
-        <div class="view view-popup navbar-fixed">
+        <div class="view view-add navbar-fixed">
             <div class="navbar newNavbar">
                 <div class="navbar-inner">
                     <div class="left"></div>
                     <div class="center sliding">种草啦</div>
-                    <div class="right"><a href="#" class="link close-popup">完成</a></div>
+                    <div class="right"><a href="#" class="link close-popup append-item">完成</a></div>
                 </div>
             </div>
             <div class="pages">
                 <div class="page">
                     <div class="page-content newPage">
-                        <textarea class="resizable newList" style="resize:none" placeholder="写点东西吧"></textarea>
-                        <div class="content-block"><a href="#" class="button add-task">Add Task</a></div>
+                        <textarea class="resizable newList" style="resize:none;overflow:hidden" placeholder="写点东西吧"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--   <script id="todo-item-template" type="text/template">
-      <ul>{{#each this}}
-        <li data-color="{{color}}" data-id="{{id}}" class="swipeout">
-          <div class="swipeout-content">
-            <label class="label-checkbox item-content"><input type="checkbox" {{checked}}>
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">{{title}}</div>
-              </div>
-            </label>
-          </div>
-          <div class="swipeout-actions-right"><a href="#" class="swipeout-delete">Delete</a></div>
-        </li>{{/each}}
-      </ul>
-    </script> -->
+    <!-- 编辑list -->
+    <div class="popup popup-edit">
+        <div class="view view-edit navbar-fixed">
+            <div class="navbar newNavbar">
+                <div class="navbar-inner">
+                    <div class="center sliding"></div>
+                    <div class="right"><a href="#" class="link close-popup save-item">完成</a></div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="page">
+                    <div class="page-content newPage">
+                        <textarea class="resizable editList" style="resize:none;overflow:hidden"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 注册 -->
     <div class="popup popup-reg">
         <div class="view view-popup">

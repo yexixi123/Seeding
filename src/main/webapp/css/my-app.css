@@ -174,17 +174,20 @@ border-bottom:2px solid tomato;
 .item-date{
   font-size: 12px;
   color:#ccc;
+  text-align: center;
 }
 .list-block ul{
   background-color: #FCEACF;
 }
 /*添加页面*/
 
-.newList {
+.newList,.editList{
     padding-left: 15px;
     padding-right: 15px;
     background-color: thistle;
     border: none;
+    width: 90%;
+    height: 90%;
 }
 
 .newNavbar {
