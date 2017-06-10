@@ -61,7 +61,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-var date = new Date().Format("yyyy-MM-dd")
+// var date = new Date().Format("yyyy-MM-dd-m-s")
 // 主页列表初始化
 var myList = myApp.virtualList('.list-block.virtual-list', {
     // Array with items data
@@ -117,7 +117,7 @@ $$('.append-item').on('click', function () {
     myList.appendItem({
         title: new_title,
         text:new_text,
-        date:date
+        date:new Date().Format("yyyy-MM-dd-m-s")
     });
     }
 });
@@ -125,7 +125,7 @@ $$('.append-item').on('click', function () {
 $$('.popup-add').on('open', function () {
   $$('.newList').val('')
 });  
-var item_content,item_title;
+var item_content,item_title,item_time;
 //点击编辑
 $$('.home-list').on('click','.list-item', function () {
     var setText=$$(this).children().children().eq(2).text()
@@ -133,14 +133,18 @@ $$('.home-list').on('click','.list-item', function () {
   $$('.editList').val(setText)
   item_content=$$(this).children().children().eq(2)
   item_title=$$(this).children().children().eq(0)
+  item_time=$$(this).children().children().eq(1)
 });
 //编辑完成后 list内容更改
 $$('.save-item').on('click', function () {
+    var panduan=$$('.editList').html()
+    if(!$$('.editList').val()==panduan){
     var edit_title=$$('.editList').val().substring(0, 10)
     var edit_text=$$('.editList').val()
+    var edit_time=new Date().Format("yyyy-MM-dd-m-s")
     console.log(edit_text)
-    console.log(item_content)
-    console.log(item_title)
     item_content.text(edit_text)
     item_title.text(edit_title)
+    item_time.text(edit_time)
+    }
 }); 
