@@ -66,88 +66,14 @@ var date = new Date().Format("yyyy-MM-dd")
 var myList = myApp.virtualList('.list-block.virtual-list', {
     // Array with items data
 cache:true,
-    items: [{
-        title: 'Item 1',
-        text: 'aaa',
-        date: date
-    }, {
-        title: 'Item 2',
-        text: 'bbb',
-        date: date
-    },
-
-        {
-            title: 'Item 3',
-            text: 'ccc',
-            date: date
-        },
-        {
-            title: 'Item 4',
-            text: 'ddd',
-            date: date
-        }, {
-            title: 'Item 5',
-            text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            date: ''
-        }, {
-            title: 'Item 6',
-            text: '水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水',
-            date: date
-        }, {
-            title: 'Item 7',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 8',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 9',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 10',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 11',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 11',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 12',
-            text: 'aaa',
-            date: date
-        }, {
-            title: 'Item 13',
-            text: 'aaa',
-            date: date
-
-        }, {
-            title: 'Item 14',
-            text: 'aaa',
-            date: date
-
-        }, {
-            title: 'Item 15',
-            text: 'aaa',
-            date: date
-
-        }, {
-            title: 'Item 16',
-            text: 'aaa',
-            date: date
-        }
+    items: [
     ],
     // Template 7 template to render each item
     template: '<li class="item-content list-item ">' +
     '<div class="item-inner row">' +
     '<div class="item-title col-70">{{title}}</div>' +
     '<div class="item-date col-30">{{date}}</div>' +
-    '<div class="item-text">{{text}}</div>' +
+    '<div class="item-text col-100">{{text}}</div>' +
     '</div>' +
     '</li>',
     height: 80
