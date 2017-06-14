@@ -1,5 +1,7 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+    precompileTemplates: true
+});
 
 // Export selectors engine
 var $$ = Dom7;
@@ -10,7 +12,8 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true,
     precompileTemplates: true
 });
-// 登陆
+var cardView = myApp.addView('.cardView')
+    // 登陆
 
 // $$('.my_login').on('click', function () {
 //     myApp.closeModal('.login-screen')
@@ -153,13 +156,13 @@ $$('.append-item').on('click', function() {
                 success: function(data) {
                     console.log(data)
                     console.log('成功')
-    myList.appendItem({
-                title: data.title,
-                text: data.content,
-                date: data.time,
-                url: '',
-                id: data.id
-            });
+                    myList.appendItem({
+                        title: data.title,
+                        text: data.content,
+                        date: data.time,
+                        url: '',
+                        id: data.id
+                    });
                 },
                 error: function(data) {
                     console.log(data)
@@ -250,3 +253,73 @@ function logchange() {
 
     })
 }
+
+function img(source) {
+    var file = source.files[0];
+
+    if (!/image\/\w+/.test(file.type)) {
+        alert('请确保文件为图像类型');
+        return false;
+    }
+    if (window.FileReader) {
+        var fr = new FileReader();
+        fr.readAsDataURL(file);
+
+        fr.onload = function(e) {
+            var location1 = e.target.result
+            Edit = document.getElementById("idEdit")
+            Edit.innerHTML += '<img style="width:80px" src=' + location1 + '>'
+        };
+    }
+
+}
+// 分享
+var context = {
+    people: [{
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }, {
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }, {
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }, {
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }, {
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }, {
+        touxiang: 'icon/2.JPG',
+        name: 'John Doe',
+        age: 18,
+        date: 'Monday at 2:15 PM',
+        content: 'What a nice photo i took yesterday!',
+        img: 'icon/3.jpg'
+    }]
+};
+cardView.router.load({
+    template: Template7.templates.cardTemplate,
+    context: context
+})
