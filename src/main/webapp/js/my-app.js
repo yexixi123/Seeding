@@ -128,7 +128,7 @@ $$('.button.weedDone').on('click', function() {
 // 未拔草
 $$('.button.willWeed').on('click', function() {
     // We need to pass array with indexes of items to show
-    myList.filterItems([0]);
+    myList.filterItems([]);
     $$('.willWeed').addClass('selection').siblings().removeClass('selection');
     $$('.list-block ul').css("height", "100%")
 });
@@ -172,12 +172,12 @@ $$('.append-item').on('click', function() {
         }
     } else {
 
-        var new_title = $$('.newList').val().substring(0, 10)
-        var new_text = $$('.newList').val()
-        console.log(new_title)
-        console.log(new_text)
+        var new_title = $$('.newList').text().substring(0, 10)
+        var new_text = $$('.newList').text()
+        console.log('这是标题'+new_title)
+        console.log('这是内容'+new_text)
             // Append Item
-        if (!$$('.newList').val() == '') {
+        if (!$$('.newList').text() == '') {
 
             myList.appendItem({
                 title: new_title,
@@ -191,7 +191,7 @@ $$('.append-item').on('click', function() {
 });
 //每次点击添加按钮清空里面的内容
 $$('.popup-add').on('open', function() {
-    $$('.newList').val('')
+    $$('.newList').text('')
 });
 var item_content, item_title, item_time, oldval;
 
@@ -199,11 +199,11 @@ var item_content, item_title, item_time, oldval;
 $$('.home-list').on('click', '.list-item', function() {
     var setText = $$(this).children().eq(2).text()
     myApp.popup('.popup-edit')
-    $$('.editList').val(setText)
+    $$('.editList').text(setText)
     item_content = $$(this).children().eq(2)
     item_title = $$(this).children().eq(0)
     item_time = $$(this).children().eq(1)
-    oldval = $$('.editList').val()
+    oldval = $$('.editList').text()
 });
 //点击图片
 $$('.home-list').on('click', '.item-media', function() {
@@ -212,10 +212,10 @@ $$('.home-list').on('click', '.item-media', function() {
 
 //编辑完成后 list内容更改
 $$('.save-item').on('click', function() {
-    var newval = $$('.editList').val()
+    var newval = $$('.editList').text()
     if (newval != oldval) {
-        var edit_title = $$('.editList').val().substring(0, 10)
-        var edit_text = $$('.editList').val()
+        var edit_title = $$('.editList').text().substring(0, 10)
+        var edit_text = $$('.editList').text()
         var edit_time = new Date().Format("yyyy-MM-dd")
         console.log(edit_text)
         item_content.text(edit_text)
