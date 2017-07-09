@@ -11,7 +11,7 @@
     <context:component-scan base-package="com.sending">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
+    <context:annotation-config />
 
     <!-- 数据库配置文件位置 -->
     <context:property-placeholder location="classpath:properties/jdbc.properties"/>
@@ -72,4 +72,24 @@
 
     <!--swagger-ui config-->
     <bean class="com.sending.util.SwaggerConfig" />
+
+    <!--sso-config-->
+    <bean class="com.smart.mvc.config.ConfigUtils">
+        <property name="fileEncoding" value="UTF-8" />
+        <property name="locations">
+            <list>
+
+                <!--单点登录服务端参数配置 -->
+                <value>classpath:sso.properties</value>
+                <!--当前应用参数配置 -->
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 以下为Hessian和Dubbo提供Token验证和授权RPC服务，二选一即可，默认Hessian -->
+    <!-- Hessian -->
+    <bean id="authenticationRpcService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="http://localhost:8080/rpc/authenticationRpcService" />
+        <property name="serviceInterface" value="com.smart.sso.rpc.AuthenticationRpcService" />
+    </bean>
 </beans>

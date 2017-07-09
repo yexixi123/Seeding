@@ -1,3 +1,4 @@
+/*
 import com.sending.dao.UserDao;
 import com.sending.entity.User;
 import com.sending.service.UserService;
@@ -10,9 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 import java.util.List;
 
+*/
 /**
  * Created by yexixi on 2017/5/30.
- */
+ *//*
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/spring-mybatis.xml"})
 public class TestMyBatis {
@@ -45,3 +48,4 @@ public class TestMyBatis {
         System.out.println(yexixi.toString());
     }
 }
+*/
